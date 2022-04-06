@@ -126,9 +126,8 @@ def resim(soup,dosyaid,url):
         dosya_linki=resimurl(url,dosya_linki)
         print(dosya_linki)
         x=True
-        y= kontrol (dosya_linki)
+        y= kontrol(dosya_linki)
         if(x==y):
-            try:
                 dosya_ismi=dosya_linki.split('/')[-1]
                 print(dosya_ismi)
                 y=resim_kontol(dosya_ismi)
@@ -140,20 +139,18 @@ def resim(soup,dosyaid,url):
                     z=resim_boyut(dosya_ismi)
                     if(z):
                         liste=liste + dosya_ismi+","
-            except IOError:
-                print("bir hata oluştu!")
-                continue
+
         else:
             continue
     return liste
 def resim_boyut(dosya_ismi): 
-    imageFile = dosya_ismi
-    imageObj = Image.open(imageFile)
-    data = imageObj.size
-    imageWidth=data[0]
-    imageHeight=data[1]
-    print(str(imageWidth) +" "+str(imageHeight) )
-    if (imageHeight>=100) and (imageWidth>=100):
+    imagefile = dosya_ismi
+    imageobj = Image.open(imagefile)
+    data = imageobj.size
+    imagewidth=data[0]
+    imageheight=data[1]
+    print(str(imagewidth) +" "+str(imageheight) )
+    if (imageheight>=100) and (imagewidth>=100):
         print("kayıt başarılı")
         return False
     else:
